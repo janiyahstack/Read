@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Write</title>
+</head>
+<body>
+    <h1> What do you think</h1>
+    <div class="toolbar">
+            <button onclick="format('bold')"><b>B</b></button>
+            <button onclick="format('italic')"><i>I</i></button>
+            <button onclick="format('underline')"><u>U</u></button>
+            <button onclick="format('strikeThrough')"><s>S</s></button>
+    </div>
+    <button id="submitBtn"> Submit</button>
+    </div>
+    <div class="container">
+        <textarea id="editor" contenteditable="true" placeholder="WRITE HERE"> </textarea>
+    
+    </div>
+
+    <style>
+        .container{            
+            height: 100vh;
+            padding: 20px;
+            margin-top: 20px;
+        }
+    textarea {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 10px;
+        resize: none;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        height: 100%;
+    }
+    .toolbar{
+        display: flex;
+        gap: 8px;
+        margin-bottom: 8px;
+    }
+    .toolbar button{
+        border: 1px solic #ccc;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        background-color: #f0f0f0;
+    }
+    .editor{
+        width: 100%;
+        flex: 1;
+        border: 1px solid #ccc;
+        padding: 10px;
+        box-sizing: border-box;
+        overflow-y: auto;
+        font-size: 16px;
+        outline: none;
+        height: 100%;
+    }
+    #submitBtn{
+        margin-top: 10px;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    </style>
+    <script>
+        function format (command) {
+            document.execCommand(command, false, null)
+            document.getElementById('editor').focus();
+        }
+        document.getElementById('submitBtn').addEventListener('click', () => {
+            const content= document.getElementById('editor').innerHTML
+            console.log(content);
+        });
+    </script>
+</body>
+</html>
